@@ -43,6 +43,11 @@ const config: HardhatUserConfig = {
       chainId: 97,
       accounts: [`0x${process.env.DEPLOYER_PRIVATE_KEY}`],
     },
+    sepolia: {
+      url: process.env.SEPOLIA_RPC_URL,
+      chainId: 11155111,
+      accounts: [`0x${process.env.DEPLOYER_PRIVATE_KEY}`],
+    },
   },
   etherscan: {
     apiKey: process.env.BSCSCAN_API_KEY,
