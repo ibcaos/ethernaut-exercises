@@ -9,7 +9,7 @@ const delay = (ms: number) => {
 
 const main = async () => {
   const [deployer] = await ethers.getSigners();
-  const contractAddress: Address = "0x50eFfcceaa873E7BC5D6738360FFe5d7a87FC0b2";
+  const contractAddress: Address = "0x258Afb4b8C8e0004904b2d4e7A522C13783658F1";
   const amountToSend: BigNumberish = ethers.utils.parseEther("0.0001")
   const fallback: Fallback = await ethers.getContractAt("Fallback", contractAddress, deployer);
   let tx = await fallback.contribute({ value: amountToSend});

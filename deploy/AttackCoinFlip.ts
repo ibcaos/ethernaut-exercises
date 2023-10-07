@@ -8,7 +8,7 @@ const deploy: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await getNamedAccounts();
   const { deploy } = deployments;
 
-  const coinFlipAddress: Address = "0x23bE44305785E35D1c07a22998f862c294e27EaF";
+  const coinFlipAddress: Address = "0xC2442b994a5cC72f36FD5548B7D3c22D9CE88eE9";
 
   const basicContractWithoutProxy = await deploy("AttackCoinFlip", {
     from: deployer,

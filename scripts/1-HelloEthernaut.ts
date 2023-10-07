@@ -158,7 +158,7 @@ const artifact = {
 
 const main = async () => {
   const [deployer] = await ethers.getSigners();
-  const contractAddress: Address = "0xAf3E2110973e8aA43675B11B142AE2D7D250aEe1";
+  const contractAddress: Address = "0x7D3f8e46041DB198C23F9F2fB12297CEA49ad740";
 
   const helloEthernaut = await ethers.getContractAtFromArtifact(artifact, contractAddress, deployer) as HelloEthernaut;
   const password = await helloEthernaut.password();

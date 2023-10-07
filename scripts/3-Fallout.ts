@@ -8,7 +8,7 @@ const delay = (ms: number) => {
 
 const main = async () => {
   const [deployer] = await ethers.getSigners();
-  const contractAddress: Address = "0x8cefcB93AA2d88F394A98b4F9FD06e1Af6E1dA6B";
+  const contractAddress: Address = "0x72cB9F927613811e1a4c45B10366b300C637104C";
   const fallout: Fallout = await ethers.getContractAt("Fallout", contractAddress, deployer);
   // Claiming the owner calling the constructor because is a function, not constructor
   let tx = await fallout.Fal1out();

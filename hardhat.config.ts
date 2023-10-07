@@ -52,9 +52,9 @@ const config: HardhatUserConfig = {
       chainId: 97,
       accounts: [`0x${process.env.DEPLOYER_PRIVATE_KEY}`],
     },
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL,
-      chainId: 11155111,
+    mumbai: {
+      url: process.env.MUMBAI_RPC,
+      chainId: 80001,
       accounts: [`0x${process.env.DEPLOYER_PRIVATE_KEY}`],
     },
   },
