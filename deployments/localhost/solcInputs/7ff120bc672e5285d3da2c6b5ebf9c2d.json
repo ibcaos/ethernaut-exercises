@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Reentrancy/Reentrance.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.6.12;\n\n//import \"@openzeppelin/contracts/utils/math/SafeMath.sol\";\n\nlibrary SafeMath {\n    function add(uint x, uint y) internal pure returns (uint z) {\n        require((z = x + y) >= x, 'ds-math-add-overflow');\n    }\n\n    function sub(uint x, uint y) internal pure returns (uint z) {\n        require((z = x - y) <= x, 'ds-math-sub-underflow');\n    }\n\n    function mul(uint x, uint y) internal pure returns (uint z) {\n        require(y == 0 || (z = x * y) / y == x, 'ds-math-mul-overflow');\n    }\n}\n\ncontract Reentrance {\n  \n  using SafeMath for uint256;\n  mapping(address => uint) public balances;\n\n  function donate(address _to) public payable {\n    balances[_to] = balances[_to].add(msg.value);\n  }\n\n  function balanceOf(address _who) public view returns (uint balance) {\n    return balances[_who];\n  }\n\n  function withdraw(uint _amount) public {\n    if(balances[msg.sender] >= _amount) {\n      (bool result,) = msg.sender.call{value:_amount}(\"\");\n      if(result) {\n        _amount;\n      }\n      balances[msg.sender] -= _amount;\n    }\n  }\n\n  receive() external payable {}\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

