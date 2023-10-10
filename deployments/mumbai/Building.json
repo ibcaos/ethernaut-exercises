@@ -1,0 +1,137 @@
+{
+  "address": "0x416ED7cBB07CC056CbdC8B6fe0f2C4680691f4Ed",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IElevator",
+          "name": "_target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "goTo",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "floor",
+          "type": "uint256"
+        }
+      ],
+      "name": "isLastFloor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "target",
+      "outputs": [
+        {
+          "internalType": "contract IElevator",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xf1d01957bcb8126430ce33b8a4eceb1bff79661026f9329988e62f79ee1cd420",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0x416ED7cBB07CC056CbdC8B6fe0f2C4680691f4Ed",
+    "transactionIndex": 9,
+    "gasUsed": "157620",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000004000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000080000000000000000000200000000000000000000000000000000000000000000000000000000100004000000000000000000001000000000000000000000000000000100040000000000000000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0x87d8b1c1804a306227cc324e228d3b24a2f8ef58cee77bf03a727e064bc16978",
+    "transactionHash": "0xf1d01957bcb8126430ce33b8a4eceb1bff79661026f9329988e62f79ee1cd420",
+    "logs": [
+      {
+        "transactionIndex": 9,
+        "blockNumber": 41018327,
+        "transactionHash": "0xf1d01957bcb8126430ce33b8a4eceb1bff79661026f9329988e62f79ee1cd420",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000001ae104c5418000000000000000000000000000000000000000000000000000d4894db9ca4a7150000000000000000000000000000000000000000000034b2c4030b6dbb18ef1a0000000000000000000000000000000000000000000000000d46e6cb50508f150000000000000000000000000000000000000000000034b2c404b97e076d071a",
+        "logIndex": 31,
+        "blockHash": "0x87d8b1c1804a306227cc324e228d3b24a2f8ef58cee77bf03a727e064bc16978"
+      }
+    ],
+    "blockNumber": 41018327,
+    "cumulativeGasUsed": "2031533",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xC394D3451c290f1270604041Bb0dB6cD56693838"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "b1794014f7422c84b47c51e4e8f3b650",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IElevator\",\"name\":\"_target\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"goTo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"floor\",\"type\":\"uint256\"}],\"name\":\"isLastFloor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"target\",\"outputs\":[{\"internalType\":\"contract IElevator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Building/Building.sol\":\"Building\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Building/Building.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface IElevator {\\n    function goTo(uint _floor) external;\\n}\\n\\ncontract Building {\\n\\n    IElevator public target;\\n    bool top;\\n\\n  constructor(IElevator _target) {\\n    target = _target;\\n  }\\n\\n  function goTo() external {\\n    target.goTo(2);\\n  }\\n\\n  function isLastFloor(uint256 floor) external returns(bool) {\\n    bool aux = top;\\n    top = !top;\\n    return aux;\\n  }\\n}\",\"keccak256\":\"0xea706a13ca0cc3434f6fb4ea3fa6d2003b68c6e784e2c4c20265783c2ae36bcc\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161020538038061020583398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b610172806100936000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80635f9a4bca14610046578063bec7fdca1461008e578063d4b8399214610098575b600080fd5b610079610054366004610123565b506000805460ff60a01b198116600160a01b9182900460ff1680159092021790915590565b60405190151581526020015b60405180910390f35b6100966100c3565b005b6000546100ab906001600160a01b031681565b6040516001600160a01b039091168152602001610085565b600054604051633b669c4d60e21b8152600260048201526001600160a01b039091169063ed9a713490602401600060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b50505050565b60006020828403121561013557600080fd5b503591905056fea26469706673582212207ba5085a3ae6dbccf8ac5b62ed29f4a8ee535e5e01b64d802a92d7f2c1ef13f364736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80635f9a4bca14610046578063bec7fdca1461008e578063d4b8399214610098575b600080fd5b610079610054366004610123565b506000805460ff60a01b198116600160a01b9182900460ff1680159092021790915590565b60405190151581526020015b60405180910390f35b6100966100c3565b005b6000546100ab906001600160a01b031681565b6040516001600160a01b039091168152602001610085565b600054604051633b669c4d60e21b8152600260048201526001600160a01b039091169063ed9a713490602401600060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b50505050565b60006020828403121561013557600080fd5b503591905056fea26469706673582212207ba5085a3ae6dbccf8ac5b62ed29f4a8ee535e5e01b64d802a92d7f2c1ef13f364736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 10,
+        "contract": "contracts/Building/Building.sol:Building",
+        "label": "target",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(IElevator)7"
+      },
+      {
+        "astId": 12,
+        "contract": "contracts/Building/Building.sol:Building",
+        "label": "top",
+        "offset": 20,
+        "slot": "0",
+        "type": "t_bool"
+      }
+    ],
+    "types": {
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IElevator)7": {
+        "encoding": "inplace",
+        "label": "contract IElevator",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
