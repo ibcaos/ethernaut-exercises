@@ -1,0 +1,131 @@
+{
+  "address": "0xb8E2E5a7F4Ae169b9B8e45551ae4Ea9272ab4DB6",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "gas",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "offsetGas",
+          "type": "uint256"
+        }
+      ],
+      "name": "attack",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gateKeeper",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getDataKey",
+      "outputs": [
+        {
+          "internalType": "bytes8",
+          "name": "",
+          "type": "bytes8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd13b69c6595c390bc1d0baa1589e1b9bb16e5b8594e6e4cbb7a6299cbf20f544",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0xb8E2E5a7F4Ae169b9B8e45551ae4Ea9272ab4DB6",
+    "transactionIndex": 4,
+    "gasUsed": "235987",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000020000000000000002000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000000000200000000000000000000000000000000000000000000000000000000100004000000000000000000001000000000000000000000000000000100000000000000000000000000080000000000000000000000000002000000000000000100000",
+    "blockHash": "0x239cad68994514b6bac9228dbef38cd3b3612fc52f9d2b3175ee91cb30f68087",
+    "transactionHash": "0xd13b69c6595c390bc1d0baa1589e1b9bb16e5b8594e6e4cbb7a6299cbf20f544",
+    "logs": [
+      {
+        "transactionIndex": 4,
+        "blockNumber": 41243100,
+        "transactionHash": "0xd13b69c6595c390bc1d0baa1589e1b9bb16e5b8594e6e4cbb7a6299cbf20f544",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x0000000000000000000000005082f249cdb2f2c1ee035e4f423c46ea2dab3ab1"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000141f181f5bd000000000000000000000000000000000000000000000000000cb42138edd50a5c0000000000000000000000000000000000000000000002bf1392079deaa087860000000000000000000000000000000000000000000000000cb2df476bdf4d5c0000000000000000000000000000000000000000000002bf1393498f6c964486",
+        "logIndex": 8,
+        "blockHash": "0x239cad68994514b6bac9228dbef38cd3b3612fc52f9d2b3175ee91cb30f68087"
+      }
+    ],
+    "blockNumber": 41243100,
+    "cumulativeGasUsed": "1058914",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x76eAd5A3D1979768050574B6921bFDE8003bE30d"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "7cc0743d4ebcd0a27071addc2bb8ae41",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_target\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"gas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"offsetGas\",\"type\":\"uint256\"}],\"name\":\"attack\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gateKeeper\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDataKey\",\"outputs\":[{\"internalType\":\"bytes8\",\"name\":\"\",\"type\":\"bytes8\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"IbCaOs\",\"kind\":\"dev\",\"methods\":{},\"title\":\"AttackGateKeeperOne\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/GateKeeperOne/AttackGateKeeperOne.sol\":\"AttackGateKeeperOne\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/GateKeeperOne/AttackGateKeeperOne.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/// @title AttackGateKeeperOne\\n/// @author IbCaOs\\ncontract AttackGateKeeperOne {\\n    address public gateKeeper;\\n\\n    constructor(address _target) {\\n        gateKeeper = _target;\\n    }\\n\\n    function attack(uint256 gas, uint256 offsetGas) external {\\n        bytes8 dataKey = getDataKey();\\n        // Solution for second gate (gas + offset)\\n        (bool success, ) = gateKeeper.call{gas: gas + offsetGas}(abi.encodeWithSignature(\\\"enter(bytes8)\\\", dataKey));\\n        require(success, \\\"ERROR: GAS\\\");\\n    }\\n\\n    function getDataKey() public view returns (bytes8) {\\n        // Solution for third gate\\n        // First, we extract the last 2 bytes of tx.origin by casting it using\\n        // bytes8(abi.encodePacked(uint16(uint160(tx.origin)))). We then perform a right shift\\n        // to position these two bytes at the beginning.\\n        bytes8 dataKey = bytes8(abi.encodePacked(uint16(uint160(tx.origin)))) >>\\n            48;\\n\\n        // After shifting the last two bytes, we use bitwise operations to set the first byte to 0x10.\\n        return dataKey | bytes8(0x1000000000000000);\\n    }\\n}\\n\",\"keccak256\":\"0xf0e4d4008b60b211d5d4aa713512cd19b3ad9aa17a86f397ccadb093678a37c4\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161037038038061037083398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b6102dd806100936000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806345d61ded146100465780637dcfd2bc14610076578063e1fa763814610097575b600080fd5b600054610059906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61007e6100ac565b6040516001600160c01b0319909116815260200161006d565b6100aa6100a53660046101f8565b6100fd565b005b6040516001600160f01b03193260f01b16602082015260009081906030906022016040516020818303038152906040526100e59061021a565b6001600160c01b031916901c600160fc1b1792915050565b60006101076100ac565b60008054919250906001600160a01b03166101228486610251565b6040516001600160c01b03198516602482015260440160408051601f198184030181529181526020820180516001600160e01b03166319b8102760e11b1790525161016d9190610278565b60006040518083038160008787f1925050503d80600081146101ab576040519150601f19603f3d011682016040523d82523d6000602084013e6101b0565b606091505b50509050806101f25760405162461bcd60e51b815260206004820152600a6024820152694552524f523a2047415360b01b604482015260640160405180910390fd5b50505050565b6000806040838503121561020b57600080fd5b50508035926020909101359150565b805160208201516001600160c01b031980821692919060088310156102495780818460080360031b1b83161693505b505050919050565b8082018082111561027257634e487b7160e01b600052601160045260246000fd5b92915050565b6000825160005b81811015610299576020818601810151858301520161027f565b50600092019182525091905056fea2646970667358221220899078bd772a2da53e5642062c9c999cd655f9a7f779656693b2f28530e3b58e64736f6c63430008120033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806345d61ded146100465780637dcfd2bc14610076578063e1fa763814610097575b600080fd5b600054610059906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61007e6100ac565b6040516001600160c01b0319909116815260200161006d565b6100aa6100a53660046101f8565b6100fd565b005b6040516001600160f01b03193260f01b16602082015260009081906030906022016040516020818303038152906040526100e59061021a565b6001600160c01b031916901c600160fc1b1792915050565b60006101076100ac565b60008054919250906001600160a01b03166101228486610251565b6040516001600160c01b03198516602482015260440160408051601f198184030181529181526020820180516001600160e01b03166319b8102760e11b1790525161016d9190610278565b60006040518083038160008787f1925050503d80600081146101ab576040519150601f19603f3d011682016040523d82523d6000602084013e6101b0565b606091505b50509050806101f25760405162461bcd60e51b815260206004820152600a6024820152694552524f523a2047415360b01b604482015260640160405180910390fd5b50505050565b6000806040838503121561020b57600080fd5b50508035926020909101359150565b805160208201516001600160c01b031980821692919060088310156102495780818460080360031b1b83161693505b505050919050565b8082018082111561027257634e487b7160e01b600052601160045260246000fd5b92915050565b6000825160005b81811015610299576020818601810151858301520161027f565b50600092019182525091905056fea2646970667358221220899078bd772a2da53e5642062c9c999cd655f9a7f779656693b2f28530e3b58e64736f6c63430008120033",
+  "devdoc": {
+    "author": "IbCaOs",
+    "kind": "dev",
+    "methods": {},
+    "title": "AttackGateKeeperOne",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 4,
+        "contract": "contracts/GateKeeperOne/AttackGateKeeperOne.sol:AttackGateKeeperOne",
+        "label": "gateKeeper",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}

