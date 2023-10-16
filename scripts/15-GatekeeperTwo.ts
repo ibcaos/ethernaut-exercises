@@ -1,20 +1,13 @@
-import { deployments, ethers } from "hardhat";
-import { BigNumber } from "ethers";
-import { Deployment } from "hardhat-deploy/types";
-import { AttackGateKeeperTwo, GatekeeperTwo } from "../typechain-types";
-
-const GAS: BigNumber = BigNumber.from("81910");
-const OFFSET_GAS: BigNumber = BigNumber.from("450");
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import { ethers } from "hardhat";
+import { GatekeeperTwo } from "../typechain-types";
 
 const checkMissionStatus = async (
-  gateKeeperOne: GatekeeperTwo,
+  gateKeeperTwo: GatekeeperTwo,
   deployerAddress: string
 ) => {
   const isMissionAccomplished =
-    (await gateKeeperOne.entrant()) === deployerAddress;
-  console.log(`Mission Accomplished: ${isMissionAccomplished}`);
+    (await gateKeeperTwo.entrant()) === deployerAddress;
+  console.log(`🎯 Mission Accomplished: ${isMissionAccomplished ? '✅ Yes!' : '❌ No!'}`);
 };
 
 const main = async (): Promise<void> => {
@@ -25,7 +18,10 @@ const main = async (): Promise<void> => {
     gateKeeperTwoAddress
   );
 
-  checkMissionStatus(gateKeeperTwo, await deployer.getAddress());
+  console.log(`🔍 Checking mission status...`);
+  await checkMissionStatus(gateKeeperTwo, await deployer.getAddress());
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

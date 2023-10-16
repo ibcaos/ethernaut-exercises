@@ -1,8 +1,5 @@
-import { deployments, ethers } from "hardhat";
-import { BigNumber, Contract } from "ethers";
-import { Address, Deployment } from "hardhat-deploy/types";
-import { Building, Elevator, Privacy } from "../typechain-types";
-
+import { ethers } from "hardhat";
+import { Privacy } from "../typechain-types";
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -15,12 +12,12 @@ const main = async (): Promise<void> => {
 
   const dataBytesArray = (await ethers.provider.getStorageAt(privacyAddress, 5)).slice(0, PREFIX + BYTES);
   
-  console.log(`Status locked: ${await privacy.locked()}`)
+  console.log(`🔒 Status locked: ${await privacy.locked() ? 'Yes' : 'No'}`)
   await privacy.unlock(dataBytesArray);
   await delay(5000);
-  console.log(`Status locked: ${await privacy.locked()}`)
-
-
+  console.log(`🔓 Status locked: ${await privacy.locked() ? 'Yes' : 'No'}`)
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

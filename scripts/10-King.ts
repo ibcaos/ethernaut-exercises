@@ -1,5 +1,5 @@
 import { deployments, ethers } from "hardhat";
-import { BigNumber, Contract } from "ethers";
+import { BigNumber } from "ethers";
 import { Address, Deployment } from "hardhat-deploy/types";
 import { AttackKing, King } from "../typechain-types";
 
@@ -23,22 +23,21 @@ const main = async (): Promise<void> => {
   const attackKing: AttackKing = await ethers.getContractAt("AttackKing", attackKingDeployment.address);
 
   const { prize, prevKing } = await getKingDetails(kingAddress, king);
-  console.log(`The actual prize is: ${prize}`);
-  console.log(`Previous king: ${ethers.utils.hexStripZeros(prevKing)}`);
+  console.log(`👑 The actual prize is: ${prize}`);
+  console.log(`🤴 Previous king: ${ethers.utils.hexStripZeros(prevKing)}`);
   
   const attackStatus = await launchAttack(attackKing, prize);
-  console.log(`Attack king makeMeKing function status: ${attackStatus}`);
+  console.log(`Attack king makeMeKing function status: ${attackStatus ? '✅' : '❌'}`);
 
   await delay(5000);
 
   const newKing: Address = await ethers.provider.getStorageAt(kingAddress, 0);
-  console.log(`New king: ${ethers.utils.hexStripZeros(newKing)}`);
+  console.log(`🤴 New king: ${ethers.utils.hexStripZeros(newKing)}`);
   console.log(
-    `Is AttackKing contract the new King?? ${
-      ethers.utils.hexStripZeros(newKing) ===
-      String(attackKingDeployment.address).toLowerCase()
-    }`
+    `Is AttackKing contract the new King?? ${ethers.utils.hexStripZeros(newKing) === String(attackKingDeployment.address).toLowerCase() ? '✅ Yes!' : '❌ No!'}`
   );
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

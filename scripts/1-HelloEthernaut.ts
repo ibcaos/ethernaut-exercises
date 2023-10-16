@@ -1,11 +1,8 @@
-import { deployments, ethers } from "hardhat";
-import { Contract } from "ethers";
+import { ethers } from "hardhat";
 import { HelloEthernaut } from "../typechain-types";
 import { Address } from "hardhat-deploy/types";
 
-const delay = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+const CONTRACT_ADDRESS: Address = "0x7D3f8e46041DB198C23F9F2fB12297CEA49ad740";
 
 const artifact = {
   "_format": "hh-sol-artifact-1",
@@ -158,15 +155,14 @@ const artifact = {
 
 const main = async () => {
   const [deployer] = await ethers.getSigners();
-  const contractAddress: Address = "0x7D3f8e46041DB198C23F9F2fB12297CEA49ad740";
+  const helloEthernaut: HelloEthernaut = await ethers.getContractAtFromArtifact(artifact, CONTRACT_ADDRESS, deployer);
 
-  const helloEthernaut = await ethers.getContractAtFromArtifact(artifact, contractAddress, deployer) as HelloEthernaut;
   const password = await helloEthernaut.password();
+  const { status } = await helloEthernaut.authenticate(password).then(tx => tx.wait());
 
-  const tx = await helloEthernaut.authenticate(password);
-  const status = (await tx.wait()).status === 1;
-
-  console.log(`Operation successful: ${status}`);
+  console.log(`Operation successful: ${status === 1 ? '✅' : '❌'}`);
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

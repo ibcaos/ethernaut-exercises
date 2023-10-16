@@ -56,11 +56,6 @@ const config: HardhatUserConfig = {
       url: "http://127.0.0.1:8545",
       chainId: 31337,
     },
-    bscTestnet: {
-      url: process.env.BNB_TESTNET_RPC_URL,
-      chainId: 97,
-      accounts: [`0x${process.env.DEPLOYER_PRIVATE_KEY}`],
-    },
     mumbai: {
       url: process.env.MUMBAI_RPC,
       chainId: 80001,
@@ -68,7 +63,7 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: process.env.BSCSCAN_API_KEY,
+    apiKey: process.env.POLYGONSCAN_API_KEY,
   },
 };
 
