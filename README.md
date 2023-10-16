@@ -5,7 +5,7 @@
 
 # 🛠 Hardhat Base Project for Smart Contract Development
 
-This repository serves as a robust starting point for smart contract development using Hardhat. It comes pre-configured with essential contracts, scripts, and tests.
+This repository serves as a robust starting point for smart contract development using Hardhat. It comes pre-configured with essential contracts, scripts, and tests. (It is not finished yet and there are several writeups pending...☺️)
 
 ---
 
@@ -81,7 +81,7 @@ Sensitive data like API keys and private keys are stored in a `.env` file. Below
 # DEPLOYMENT PRIVATE KEYS
 # -----------------------------
 DEPLOYER_PRIVATE_KEY=
-
+ATTACKER_PRIVATE_KEY=
 # -----------------------------
 # API KEYS
 # -----------------------------
