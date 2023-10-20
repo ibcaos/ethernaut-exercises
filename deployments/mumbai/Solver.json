@@ -1,0 +1,70 @@
+{
+  "address": "0x95d875745238ed0fd3bde24eb475fe51b1610052",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "whatIsTheMeaningOfLife",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xa3e1ee2dff08b5ce3505b278985a63bfe029a0301a2bffcb007af6ebbd1fbedd",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64cf20f4a62f14a2455dc0a79478c7",
+    "contractAddress": "0x95d875745238ed0fd3bde24eb475fe51b1610052",
+    "transactionIndex": "0x1",
+    "gasUsed": "0x146bd",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000004000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000080000000000000000000200000000000000000000000000000000000000000000000000000000100004000000000000000000001000000000000000000000000000000100040000000000000000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0xd13ece5ba29be770c047246a4f59c6eb3eb5b0f047346d58b3168d1bd34d87a0",
+    "transactionHash": "0x28d6ff0bf81c51137c3f65769e929a0ad644d846ceee71826809a66d095221f4",
+    "logs": [
+      {
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000098263d0644000000000000000000000000000000000000000000000000001149b6bfa49f45bf0000000000000000000000000000000000000000000034ec263f352d9506bb2100000000000000000000000000000000000000000000000011491e99679901bf0000000000000000000000000000000000000000000034ec263fcd53d20cff21",
+        "blockNumber": "0x27823d6",
+        "transactionHash": "0x28d6ff0bf81c51137c3f65769e929a0ad644d846ceee71826809a66d095221f4",
+        "transactionIndex": "0x1",
+        "blockHash": "0xd13ece5ba29be770c047246a4f59c6eb3eb5b0f047346d58b3168d1bd34d87a0",
+        "logIndex": "0x2",
+        "removed": false
+      }
+    ],
+    "blockNumber": "0x27823d6",
+    "cumulativeGasUsed": "0x198c5",
+    "status": "0x1"
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "0ae5ecf3e5aa711a1a9b23d48b7797ed",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"whatIsTheMeaningOfLife\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/MagicNumber/Solver.sol\":\"Solver\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/MagicNumber/Solver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ncontract Solver {\\n    function whatIsTheMeaningOfLife() public pure returns(uint8) {\\n        assembly {\\n            mstore(0x00, 0x2A)\\n            return (0x00, 0x20)\\n        }\\n    }\\n}\",\"keccak256\":\"0x7ebfb95ffc3b6f63a7a18c83c02c0cec9ff85663bf85e939f6fd8c3502e9b1de\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50608c8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063650500c114602d575b600080fd5b60336049565b60405160ff909116815260200160405180910390f35b6000602a60005260206000f3fea2646970667358221220b093aa864b15130216526ce3f951cddff43af5439921417ec7636105080bd45864736f6c63430008120033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063650500c114602d575b600080fd5b60336049565b60405160ff909116815260200160405180910390f35b6000602a60005260206000f3fea2646970667358221220b093aa864b15130216526ce3f951cddff43af5439921417ec7636105080bd45864736f6c63430008120033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
