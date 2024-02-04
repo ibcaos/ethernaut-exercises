@@ -1,5 +1,6 @@
 import { ethers, upgrades } from "hardhat";
 import { Contract, Signer } from "ethers";
+import { expect } from "chai";
 
 describe("BaseTest", async function () {
   let accounts: Signer[];
@@ -33,6 +34,7 @@ describe("BaseTest", async function () {
     });
     describe("Happy path", () => {
       it("Description of the test", async () => {
+        expect(1).to.be.equal(1);
       });
     });
   });
